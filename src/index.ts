@@ -2,6 +2,8 @@ import { DefaultArticle } from "./article/DefaultArticle";
 import { DefaultText } from "./text/DefaultText";
 
 const article = new DefaultArticle();
-const updated = article.write(new DefaultText("Olá mundo"));
+const articleWithText = article.write(new DefaultText("Olá mundo"));
+const articleWithTitle = articleWithText.writeTitle(new DefaultText("Titulo do artigo"));
 
-console.log(updated.getText().getValue());
+console.log(articleWithText.getText().getValue());
+console.log(articleWithTitle.getTitle().getValue());
