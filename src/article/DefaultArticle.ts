@@ -9,6 +9,10 @@ export class DefaultArticle implements Article {
     this.text = text ?? new NullText();
   }
 
+  getText(): Text {
+    return this.text;
+  }
+
   write(text: Text): Article {
     return new DefaultArticle(text);
   }

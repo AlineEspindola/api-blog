@@ -1,3 +1,3 @@
 export interface Text {
-  value(): string;
+  getValue(): string;
 }

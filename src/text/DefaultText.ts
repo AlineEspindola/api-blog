@@ -7,8 +7,7 @@ export class DefaultText implements Text {
     this.text = text;
   }
 
-  value(): string {
+  getValue(): string {
     return this.text;
   }
- 
 }
