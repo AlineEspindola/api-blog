@@ -3,16 +3,32 @@ import { NullText } from "../text/NullText";
 import { Text } from "../text/Text";
 
 export class DefaultArticle implements Article {
-  private text: Text;
   private title: Text;
+  private text: Text;
 
-  constructor(text?: Text, title?: Text) {
-    this.text = text ?? new NullText();
+  constructor(title?: Text, text?: Text) {
     this.title = title ?? new NullText();
+    this.text = text ?? new NullText();
   }
 
-  writeTitle(text: Text): Article {
-    return new DefaultArticle(this.text, text);
+  makeEditable(): Article {
+    throw new Error("Method not implemented.");
+  }
+
+  publish(): Article {
+    throw new Error("Method not implemented.");
+  }
+
+  archive(): Article {
+    throw new Error("Method not implemented.");
+  }
+  
+  unarchive(): Article {
+    throw new Error("Method not implemented.");
+  }
+
+  writeTitle(title: Text): Article {
+    return new DefaultArticle(title, this.text);
   }
 
   getTitle(): Text {
@@ -24,6 +40,6 @@ export class DefaultArticle implements Article {
   }
 
   write(text: Text): Article {
-    return new DefaultArticle(text);
+    return new DefaultArticle(this.title, text);
   }
 }

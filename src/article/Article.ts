@@ -8,4 +8,12 @@ export interface Article {
   writeTitle(text: Text): Article;
 
   getTitle(): Text;
+
+  makeEditable(): Article;
+
+  publish(): Article;
+
+  archive(): Article;
+
+  unarchive(): Article;
 }

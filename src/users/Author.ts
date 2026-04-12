@@ -1,3 +1,5 @@
+import { Article } from "../article/Article";
+import { DefaultArticle } from "../article/DefaultArticle";
 import { Email } from "../text/Email";
 import { Person } from "./Person";
 
@@ -16,5 +18,9 @@ export class Author implements Person {
 
   getEmail(): Email {
     return this.email;
+  }
+
+  createArticle(): Article {
+    return new DefaultArticle();
   }
 }
