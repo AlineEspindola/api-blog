@@ -9,6 +9,10 @@ export class PublishedArticle implements Article {
   constructor(article: Article) {
     this.article = article;
   }
+  
+  getLastEdited(): Date {
+    return this.article.getLastEdited();
+  }
 
   write(text: Text): Article {
     throw new Error("This article is published and cannot be edited.");

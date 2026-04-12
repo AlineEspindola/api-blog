@@ -9,6 +9,10 @@ export class DraftArticle implements Article {
     this.article = article;
   }
 
+  getLastEdited(): Date {
+    return this.article.getLastEdited();
+  }
+
   makeEditable(): Article {
     throw new Error("This article is already editable.");
   }

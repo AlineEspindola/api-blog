@@ -16,4 +16,6 @@ export interface Article {
   archive(): Article;
 
   unarchive(): Article;
+  
+  getLastEdited(): Date;
 }

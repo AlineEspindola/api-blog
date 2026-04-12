@@ -9,6 +9,10 @@ export class ArchivedArticle implements Article {
   constructor(article: Article) {
     this.article = article;
   }
+  
+  getLastEdited(): Date {
+    return this.article.getLastEdited();
+  }
 
   makeEditable(): Article {
     return new DraftArticle(this.article);

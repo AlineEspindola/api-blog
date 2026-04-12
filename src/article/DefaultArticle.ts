@@ -5,10 +5,16 @@ import { Text } from "../text/Text";
 export class DefaultArticle implements Article {
   private title: Text;
   private text: Text;
+  private lastEdited: Date;
 
-  constructor(title?: Text, text?: Text) {
+  constructor(title?: Text, text?: Text, lastEdited?: Date) {
     this.title = title ?? new NullText();
     this.text = text ?? new NullText();
+    this.lastEdited = lastEdited ?? new Date();
+  }
+
+  getLastEdited(): Date {
+    return this.lastEdited;
   }
 
   makeEditable(): Article {
@@ -28,7 +34,7 @@ export class DefaultArticle implements Article {
   }
 
   writeTitle(title: Text): Article {
-    return new DefaultArticle(title, this.text);
+    return new DefaultArticle(title, this.text, new Date());
   }
 
   getTitle(): Text {
@@ -40,6 +46,6 @@ export class DefaultArticle implements Article {
   }
 
   write(text: Text): Article {
-    return new DefaultArticle(this.title, text);
+    return new DefaultArticle(this.title, text, new Date());
   }
 }
