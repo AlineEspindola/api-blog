@@ -9,6 +9,18 @@ export class ArchivedArticle implements Article {
   constructor(article: Article) {
     this.article = article;
   }
+
+  isPublished(): boolean {
+    return false;
+  }
+
+  isDraft(): boolean {
+    return false;
+  }
+
+  isArchived(): boolean {
+    return true;
+  }
   
   getLastEdited(): Date {
     return this.article.getLastEdited();

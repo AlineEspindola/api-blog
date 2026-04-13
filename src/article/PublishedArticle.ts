@@ -9,6 +9,18 @@ export class PublishedArticle implements Article {
   constructor(article: Article) {
     this.article = article;
   }
+
+  isPublished(): boolean {
+    return true;
+  }
+
+  isDraft(): boolean {
+    return false;
+  }
+
+  isArchived(): boolean {
+    return false;
+  }
   
   getLastEdited(): Date {
     return this.article.getLastEdited();

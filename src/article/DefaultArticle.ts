@@ -13,6 +13,18 @@ export class DefaultArticle implements Article {
     this.lastEdited = lastEdited ?? new Date();
   }
 
+  isPublished(): boolean {
+    return false;
+  }
+
+  isDraft(): boolean {
+    return false;
+  }
+
+  isArchived(): boolean {
+    return false;
+  }
+
   getLastEdited(): Date {
     return this.lastEdited;
   }

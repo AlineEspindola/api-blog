@@ -9,6 +9,18 @@ export class DraftArticle implements Article {
     this.article = article;
   }
 
+  isPublished(): boolean {
+    return false;
+  }
+
+  isDraft(): boolean {
+    return true;
+  }
+
+  isArchived(): boolean {
+    return false;
+  }
+
   getLastEdited(): Date {
     return this.article.getLastEdited();
   }

@@ -18,4 +18,10 @@ export interface Article {
   unarchive(): Article;
   
   getLastEdited(): Date;
+
+  isPublished(): boolean;
+
+  isDraft(): boolean;
+
+  isArchived(): boolean;
 }
