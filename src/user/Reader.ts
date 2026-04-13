@@ -23,7 +23,11 @@ export class Reader implements Person {
   }
 
   comment(message: Text, article: Article): Article {
-    return new CommentedArticle(article, [new DefaultComment(message)]);
+    const newComment = new DefaultComment(message);
+    if (article instanceof CommentedArticle) {
+      return article.addComment(newComment);
+    }
+    return new CommentedArticle(article, [newComment]);
   }
 
   draftArticle(article: Article): Article {

@@ -8,7 +8,7 @@ import { DraftArticle } from "../article/DraftArticle";
 import { CommentedArticle } from "../article/CommentedArticle";
 import { DefaultComment } from "../article/comment/DefaultComment";
 export class Author implements Person {
-  private name: Text
+  private name: Text;
   private email: Email;
 
   constructor(name: Text, email: Email) {
@@ -37,7 +37,11 @@ export class Author implements Person {
   }
 
   comment(message: Text, article: Article): Article {
-    return new CommentedArticle(article, [new DefaultComment(message)]);
+    const newComment = new DefaultComment(message);
+    if (article instanceof CommentedArticle) {
+      return article.addComment(newComment);
+    }
+    return new CommentedArticle(article, [newComment]);
   }
 
   publishArticle(article: Article): Article {
